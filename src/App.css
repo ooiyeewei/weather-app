@@ -3,9 +3,15 @@
   margin-right: 10px;
 }
 
-.errorMessage {
-  color: red;
-  /*background-color: red;*/
-  /*border-color: darkred;*/
+.noRecord {
+  text-align: center;
+  color: gray;
+}
 
+.errorMessage {
+  background-color: #ffcccb;
+  width: 90%;
+  border: 5px solid red;
+  padding: 1px 20px;
+  margin: 20px;
 }

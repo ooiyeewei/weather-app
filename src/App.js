@@ -83,7 +83,7 @@ const App = () => {
           </div>}
           <h2>Search History</h2>
           <hr/>
-          {searchList && <SearchHistory searchList={searchList} onDeleteHistory={onDeleteHistory} onSubmit={onSearch}/>}
+          {searchList.length > 0 ? <SearchHistory searchList={searchList} onDeleteHistory={onDeleteHistory} onSubmit={onSearch}/> : <p className={'noRecord'}>No Record</p>}
       </div>
   );
 };
