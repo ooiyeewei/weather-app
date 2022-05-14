@@ -1,17 +1,16 @@
-import '../App.css';
-import React, {useEffect, useState} from "react";
+import React from "react";
+import './weatherInfo.css';
 
 const WeatherInfo = (props) => {
-
     const {weatherData} = props;
 
     return (
-        <div className="WeatherInfo">
+        <div className="weatherInfo">
             <p className={"location"}>{weatherData?.city}, {weatherData?.country}</p>
-            <h2>{weatherData?.weather}</h2>
+            <h1>{weatherData?.weather}</h1>
             <p>Description: {weatherData?.description}</p>
             <p>Temperature: {weatherData?.temperature}</p>
-            <p>Humidity: {weatherData?.humidity}</p>
+            <p>Humidity: {weatherData?.humidity}%</p>
             <p>Date: {weatherData?.time}</p>
         </div>
     );

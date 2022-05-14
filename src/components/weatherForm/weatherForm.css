@@ -1,0 +1,19 @@
+.weatherForm {
+    margin-top: 20px;
+}
+
+.weatherForm label {
+    float: left;
+    margin-left: 20px;
+}
+
+.weatherForm button {
+    margin-left: 20px;
+}
+
+input[type=text] {
+    margin-left: 20px;
+    width: 200px;
+    float: left;
+}
+

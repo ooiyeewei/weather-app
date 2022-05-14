@@ -1,0 +1,16 @@
+.weatherInfo {
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.weatherInfo h1 {
+    margin: 2px;
+}
+
+.weatherInfo p {
+    margin: 1px;
+}
+
+.location {
+    color: gray;
+}

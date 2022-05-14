@@ -1,7 +1,7 @@
 import './searchHistory.css';
 import React from "react";
-import search from "../assets/search.png";
-import deleteButton from "../assets/delete.png";
+import search from "../../assets/search.png";
+import deleteButton from "../../assets/delete.png";
 
 const SearchHistory = (props) => {
     const {searchList, onDeleteHistory, onSubmit} = props;
@@ -9,7 +9,7 @@ const SearchHistory = (props) => {
     const historyList = searchList && searchList.map((searchData, value) => {
         const num = value + 1;
         return (
-            <div className={"searchData"}>
+            <div className={"searchData"} key={value}>
                 <p> {num}: {searchData.city}, {searchData.country}
                 <div className={'date'}>
                     {searchData.time}
@@ -17,6 +17,7 @@ const SearchHistory = (props) => {
                     <button onClick={() => onDeleteHistory(value)}><img className={'button'} src={deleteButton}/></button>
                 </div>
                 </p>
+                <hr/>
             </div>
 
         )

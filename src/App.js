@@ -1,13 +1,9 @@
 import './App.css';
 import {useState} from "react";
-import WeatherInfo from "./components/weatherInfo";
+import WeatherInfo from "./components/weatherInfo/weatherInfo";
+import SearchHistory from "./components/searchHistory/searchHistory";
 import moment from "moment";
-import SearchHistory from "./components/searchHistory";
-
-const initialState = {
-    city: "",
-    country: ""
-};
+import WeatherForm from "./components/weatherForm/weatherForm";
 
 const initialWeatherData = {
     city: "",
@@ -20,27 +16,17 @@ const initialWeatherData = {
 };
 
 const App = () => {
-    const [state, setState] = useState(initialState);
     const [weatherData, setWeatherData] = useState(initialWeatherData);
     const [searchList, setSearchList] = useState([]);
     const [showError, setShowError] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
-
-    const safeSetState = (obj) => {
-        setState(d => {
-            return {
-                ...d,
-                ...obj
-            };
-        });
-    };
 
     const onSubmit = async (e, city, country) => {
         e.preventDefault();
         setShowError(false);
         setShowInfo(false);
 
-        let cityQuery  = city || state.city;
+        let cityQuery  = city;
         let url = "http://api.openweathermap.org/data/2.5/weather?q=" + cityQuery + "&APPID=7db817a81ce5b687309e20cb64b00336";
 
         try {
@@ -75,16 +61,6 @@ const App = () => {
         }
     };
 
-    const onInputChange = (e, name) => {
-        safeSetState({
-            [name]: e
-        })
-    }
-
-    const onClear = () => {
-        safeSetState(initialState);
-    }
-
     const onDeleteHistory = (index) => {
         let history = [...searchList];
         history.splice(index, 1);
@@ -99,25 +75,7 @@ const App = () => {
       <div className="App">
         <h2>Today's Weather</h2>
           <hr/>
-          <form onSubmit={onSubmit}>
-              <label>City: </label>
-              <input
-                  type="text"
-                  value={state.city}
-                  placeholder="City"
-                  onChange={(e) => onInputChange(e.target.value, 'city')}
-              />
-              <label>Country: </label>
-              <input
-                  type="text"
-                  value={state.country}
-                  placeholder="Country"
-                  onChange={(e) => onInputChange(e.target.value, 'country')}
-              />
-              <button type="submit">Search</button>
-              <button onClick={() => onClear()}>Clear</button>
-          </form>
-          <hr/>
+          <WeatherForm onSubmit={onSubmit}/>
           {showInfo && <WeatherInfo weatherData={weatherData}/>}
           {showError &&
           <div className={'errorMessage'}>

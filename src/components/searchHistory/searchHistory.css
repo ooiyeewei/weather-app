@@ -1,0 +1,22 @@
+.date {
+    float: right;
+}
+
+.searchData .button {
+    width: 20px;
+    height: 20px;
+}
+
+.searchData button {
+    border-radius: 50%;
+    border: none;
+    padding: 5px;
+    margin-left: 5px;
+}
+
+.searchData hr {
+    height: 1px;
+    background-color: lightgray;
+    border: none;
+}
+
