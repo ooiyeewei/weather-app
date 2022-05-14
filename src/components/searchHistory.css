@@ -1,0 +1,14 @@
+.date {
+    float: right;
+}
+
+.button {
+    width: 20px;
+    height: 20px;
+}
+
+button {
+    border-radius: 50%;
+    border: none;
+    padding: 5px;
+}
